@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SingleDoor : MonoBehaviour
+public class Door : MonoBehaviour
 {
     public bool state = false;
     MeshRenderer _mesh;

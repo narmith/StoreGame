@@ -1,4 +1,4 @@
-public struct Menu
+public struct FoodMenu
 {
     //static int id0 = 0;
     static string id0desc = "null";

@@ -3,7 +3,7 @@ using UnityEngine;
 public class FridgeManager : MonoBehaviour
 {
     public bool doorIsClosed = true;
-    public SingleDoor _door;
+    public Door _door;
     //int cleanIndex = 10; //0 to 10. 10 is clean.
     public bool isBroken = false;
     public bool isPowered = true;
@@ -12,7 +12,7 @@ public class FridgeManager : MonoBehaviour
 
     void Start()
     {
-        _door = GetComponentInChildren<SingleDoor>();
+        _door = GetComponentInChildren<Door>();
     }
 
     void Update()

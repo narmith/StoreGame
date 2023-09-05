@@ -1,11 +1,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoungeManager : MonoBehaviour
+public class TableManager : MonoBehaviour
 {
+    public static TableManager instance;
     static List<Table> _tables = new();
     static int _totalClients;
     static int _popularity;
+
+    private void Awake()
+    {
+        if (TableManager.instance != null)
+        {
+            Destroy(this);
+            return;
+        }
+
+        PlayerPrefs.DeleteAll();
+        TableManager.instance = this;
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     void Start()
     {

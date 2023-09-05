@@ -16,11 +16,11 @@ public class CookingStation : MonoBehaviour
     //Oven
     public Light _innerLight;
     public bool doorIsClosed = false;
-    SingleDoor _ovenDoor;
+    Door ovenDoor;
 
     void Start()
     {
-        _ovenDoor = GetComponentInChildren<SingleDoor>();
+        ovenDoor = GetComponentInChildren<Door>();
         if (!_upperLight1) { Debug.Log(this.gameObject.name + "has no _upperLight1 asociated!"); }
         if (!_upperLight2) { Debug.Log(this.gameObject.name + "has no _upperLight2 asociated!"); }
         if (!_upperLight3) { Debug.Log(this.gameObject.name + "has no _upperLight3 asociated!"); }
@@ -28,8 +28,10 @@ public class CookingStation : MonoBehaviour
         if (!_innerLight) { Debug.Log(this.gameObject.name + "has no _innerLight asociated!"); }
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        ovenDoor.state = doorIsClosed;
+
         if (isBroken == true || hasGas == false)
         { isCooking = false; }
         else if (isCooking)
@@ -40,7 +42,6 @@ public class CookingStation : MonoBehaviour
         _upperLight3.enabled = isCooking;
         _upperLight4.enabled = isCooking;
         _innerLight.enabled = isCooking;
-        _ovenDoor.state = doorIsClosed;
     }
 
     public void stationOnOff()

@@ -2,14 +2,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FloatingTextManager : MonoBehaviour
+public class SayManager : MonoBehaviour
 {
+    public static SayManager instance;
     public GameObject textPrefab;
     private List<FloatingText> floatingTexts = new List<FloatingText>();
 
-    protected void Start()
+    private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        if (SayManager.instance == null)
+        {
+            SayManager.instance = this;
+        }
     }
 
     private void Update()

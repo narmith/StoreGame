@@ -3,16 +3,10 @@ using UnityEngine;
 public class Say : MonoBehaviour
 {
     public string whatToSay;
-    MainManager mManager;
 
-    private void Start()
+    public void SayAnything()
     {
-        mManager = MainManager.instance;
-    }
-
-    public void SaySomething()
-    {
-        mManager.ShowText(
+        GameManager.instance.ShowText(
             whatToSay,
             25, Color.yellow,
             transform.position,
@@ -20,10 +14,10 @@ public class Say : MonoBehaviour
             1.5f);
     }
 
-    public void SayThis(string words)
+    public void SayThis(string _whatToSay)
     {
-        mManager.ShowText(
-            words,
+        GameManager.instance.ShowText(
+            _whatToSay,
             25, Color.yellow,
             transform.position,
             Vector3.up * 25,

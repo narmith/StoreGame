@@ -25,7 +25,7 @@ public class Table : MonoBehaviour
         if (!_dummyNPC2) { Debug.Log("Table has no Dummy2 defined."); }
         if (!_dummyNPC3) { Debug.Log("Table has no Dummy3 defined."); }
         if (!_dummyNPC4) { Debug.Log("Table has no Dummy4 defined."); }
-        _id = LoungeManager.AddTable(this);
+        _id = TableManager.AddTable(this);
         SitNPCs();
     }
 
@@ -38,13 +38,13 @@ public class Table : MonoBehaviour
     }
     void ResetTable()
     {
-        if (_clientsQty >= 1) { LoungeManager.Customers(-_clientsQty); }
+        if (_clientsQty >= 1) { TableManager.Customers(-_clientsQty); }
         _clientsQty = ((int)Random.Range(0f, 4f));
-        if (_clientsQty >= 1) { LoungeManager.Customers(_clientsQty); }
+        if (_clientsQty >= 1) { TableManager.Customers(_clientsQty); }
 
         SitNPCs();
     }
-    void ClientAskReceipt() { MainManager.Money(10 * _clientsQty); LoungeManager.Popularity(1 * _clientsQty); }
+    void ClientAskReceipt() { GameManager.Money(10 * _clientsQty); TableManager.Popularity(1 * _clientsQty); }
     public int ClientsQty() { return _clientsQty; }
 
     //Player actions

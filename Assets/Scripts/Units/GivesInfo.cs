@@ -11,9 +11,13 @@ public class GivesInfo : MonoBehaviour
 
     public void Action()
     {
-        if(TryGetComponent<CookingStation>(out CookingStation cs))
+        if(TryGetComponent<CookingStation>(out CookingStation cookingStation))
         {
-            cs.stationOnOff();
+            cookingStation.stationOnOff();
+        }
+        else if (TryGetComponent<Toilet>(out Toilet toilet))
+        {
+            toilet.OpenCloseDoor();
         }
     }
 }

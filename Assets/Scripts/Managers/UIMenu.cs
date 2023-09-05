@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class UIMenu : MonoBehaviour
 {
     public static UIMenu instance;
-    MainManager mManager;
+    GameManager gManager;
 
     public Text _storeName;
     public Text fpsText;
@@ -28,7 +28,7 @@ public class UIMenu : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(this.gameObject);
 
-        mManager = MainManager.instance;
+        gManager = GameManager.instance;
 
         _storeName = GetComponent<Text>();
         deltaTime = 0f;
@@ -48,15 +48,15 @@ public class UIMenu : MonoBehaviour
         else _infoTimer -= 1 * Time.deltaTime;
 
         fpsText.text = "FPS: " + Mathf.Ceil(fps).ToString();
-        clients.text = mManager.Customers() + " - " + mManager.Tables() + " tables";
-        popularity.text = mManager.Popularity();
-        //money.text = mManager.Money();
+        clients.text = gManager.Customers() + " - " + gManager.Tables() + " tables";
+        popularity.text = gManager.Popularity();
+        //money.text = gManager.Money();
     }
 
     public void SpawnCustomer(int _tableId)
     {
         if(_tableId==0) { _tableId=((int)Random.Range(0f, 6f)); }
-        LoungeManager.SpawnCustomerAtTable(_tableId);
+        TableManager.SpawnCustomerAtTable(_tableId);
     }
 
     public void ShowInfo(string _text)
@@ -66,11 +66,7 @@ public class UIMenu : MonoBehaviour
         _infoTimer = 2f;
     }
 
-
-    public void NewGame()
-    {
-        SceneManager.LoadScene(1);
-    }
+    public void NewGame() { SceneManager.LoadScene(1); }
     public void LoadGame()
     {
         SceneManager.LoadScene(1);
@@ -81,10 +77,7 @@ public class UIMenu : MonoBehaviour
         //if(SceneManager == 1)
         // then Save state to HDD
     }
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
+    public void QuitGame() { Application.Quit(); }
 }
 
 public class MainMenu : MonoBehaviour
@@ -93,53 +86,31 @@ public class MainMenu : MonoBehaviour
 
     public void Start()
     {
+        Application.targetFrameRate = 60;
         Cursor.lockState = CursorLockMode.None;
     }
 
-    public void PlayGame()
-    {
-        SceneManager.LoadScene("Nivel1");
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
-    public void LoadLevel(string menu)
-    {
-        SceneManager.LoadScene(menu);
-    }
-
-    public void GodModeOption()
-    {
-        if (!GodMode) //enables the option
-        {
-            GodMode = true;
-        }
-        else if (GodMode) //disables the option
-        {
-            GodMode = false;
-        }
-    }
-
+    public void QuitGame() { Application.Quit(); }
+    public void LoadScene(string scene) { SceneManager.LoadScene(scene); }
+    public void LoadSceneMainMenu() { LoadScene("MainMenu"); }
+    public void LoadSceneStoreGame() {  LoadScene("StoreGame"); }
 
 
     public void LoungeMenu()
     {
-        int cleanIndex = 0;
+        //int cleanIndex = 0;
     }
     public void KitchenMenu()
     {
-        int cleanIndex = 0;
+        //int cleanIndex = 0;
     }
     public void StoreroomMenu()
     {
-        int cleanIndex = 0;
+        //int cleanIndex = 0;
     }
     public void BathroomMenu()
     {
-        int cleanIndex = 0;
+        //int cleanIndex = 0;
     }
     public void EmployeeMenu()
     {

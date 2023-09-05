@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class Toilet : MonoBehaviour
 {
-
     public bool doorIsClosed = false;
-    SingleDoor _door;
+    Door _door;
     //int cleanIndex = 10; //0 to 10. 10 is clean.
     public bool menAllowed = false;
     public bool staffOnly = false;
@@ -13,10 +12,10 @@ public class Toilet : MonoBehaviour
 
     void Start()
     {
-        _door = GetComponentInChildren<SingleDoor>();
+        _door = GetComponentInChildren<Door>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         _door.state = doorIsClosed;
     }

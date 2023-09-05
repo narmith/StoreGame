@@ -1,18 +1,9 @@
 using UnityEngine;
 
-public class CameraMovement : MonoBehaviour
+public class CameraView : MonoBehaviour
 {
-    Transform playerPos;
-
-    private void Start()
-    {
-        playerPos = GameObject.Find("Player").transform;
-    }
-
     void FixedUpdate()
     {
-        transform.LookAt(playerPos);
-
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -44,7 +35,7 @@ public class CameraMovement : MonoBehaviour
             {
                 if (hit.collider.gameObject.TryGetComponent(out Say say))
                 {
-                    say.SaySomething();
+                    say.SayAnything();
                 }
             }
         }
