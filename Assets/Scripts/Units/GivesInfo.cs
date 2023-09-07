@@ -4,20 +4,14 @@ public class GivesInfo : MonoBehaviour
 {
     public string _info;
 
-    public void Information(string _new) {_info = _new; }
-    public void Information() { Debug.Log(_info); }
+    public void SetInformation(string _new) {_info = _new; }
+    public string StoredInformation() { return _info; }
 
-    public void Special() { Debug.Log(this.gameObject.name); }
-
-    public void Action()
+    public void DoAction()
     {
         if(TryGetComponent<CookingStation>(out CookingStation cookingStation))
         {
-            cookingStation.stationOnOff();
-        }
-        else if (TryGetComponent<Toilet>(out Toilet toilet))
-        {
-            toilet.OpenCloseDoor();
+            cookingStation.StationOnOff();
         }
     }
 }

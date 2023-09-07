@@ -44,7 +44,7 @@ public class CookingStation : MonoBehaviour
         _innerLight.enabled = isCooking;
     }
 
-    public void stationOnOff()
+    public void StationOnOff()
     {
         isCooking = !isCooking;
     }

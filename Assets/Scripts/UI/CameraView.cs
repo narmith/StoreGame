@@ -6,14 +6,7 @@ public class CameraView : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                if (hit.collider.gameObject.TryGetComponent(out GivesInfo info))
-                {
-                    info.Information();
-                }
-            }
+            
         }
 
         if (Input.GetMouseButtonDown(1))
@@ -21,9 +14,13 @@ public class CameraView : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                if (hit.collider.gameObject.TryGetComponent(out GivesInfo info))
+                if (hit.collider.gameObject.TryGetComponent(out GivesInfo isInfoGiver))
                 {
-                    info.Action();
+                    isInfoGiver.DoAction();
+                }
+                else if (hit.collider.gameObject.TryGetComponent(out Toilet isToilet))
+                {
+                    isToilet.OpenCloseDoor();
                 }
             }
         }
@@ -36,6 +33,10 @@ public class CameraView : MonoBehaviour
                 if (hit.collider.gameObject.TryGetComponent(out Say say))
                 {
                     say.SayAnything();
+                }
+                else if (hit.collider.gameObject.TryGetComponent(out GivesInfo info))
+                {
+                    Debug.Log(info.StoredInformation());
                 }
             }
         }
