@@ -18,9 +18,9 @@ public class CameraView : MonoBehaviour
                 {
                     isInfoGiver.DoAction();
                 }
-                else if (hit.collider.gameObject.TryGetComponent(out Toilet isToilet))
+                else if (hit.collider.gameObject.TryGetComponent(out Door isDoor))
                 {
-                    isToilet.OpenCloseDoor();
+                    isDoor.OpenCloseDoor();
                 }
             }
         }

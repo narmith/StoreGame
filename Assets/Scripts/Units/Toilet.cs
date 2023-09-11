@@ -17,12 +17,6 @@ public class Toilet : MonoBehaviour
 
     void FixedUpdate()
     {
-        _door.state = doorIsClosed;
-    }
-
-    public void OpenCloseDoor()
-    {
-        doorIsClosed = !doorIsClosed;
-        //TODO: Add sound effect.
+        
     }
 }

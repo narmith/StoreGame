@@ -15,6 +15,14 @@ public class Door : MonoBehaviour
     void LateUpdate()
     {
         _mesh.enabled = state;
-        _coll.enabled = state;
+        //_coll.enabled = state;
     }
+
+    public void OpenCloseDoor()
+    {
+        state = !state;
+        //TODO: Add sound effect.
+    }
+
+    public bool IsClosed() { return state; }
 }
