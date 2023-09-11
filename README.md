@@ -37,8 +37,7 @@ Update 11-Sept-2023
 
 ![04](https://github.com/narmith/StoreGame/assets/9043144/0b4ba7e1-4767-4b78-a1dd-05ad5fdff2ab)
 
-![06](https://github.com/narmith/StoreGame/assets/9043144/29875783-93df-4820-b006-c5cb626566c4)
-
+![05](https://github.com/narmith/StoreGame/assets/9043144/b3d936cb-65b6-489c-8925-ed0930d5bf4d)
 
 <br>
 <br>
