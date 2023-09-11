@@ -20,6 +20,8 @@ I have also set up the initial scripting components for toilet-doors and visual 
 
 ![00](https://github.com/narmith/StoreGame/assets/9043144/66a933ff-6b37-4ac4-915d-7a055f755c45)
 
+![02](https://github.com/narmith/StoreGame/assets/9043144/f575290a-9918-4b26-b27a-7a89998edea0)
+
 ![03](https://github.com/narmith/StoreGame/assets/9043144/62db6b0f-b0ef-4da4-991e-a6ceed11c49a)
 
 <br>
